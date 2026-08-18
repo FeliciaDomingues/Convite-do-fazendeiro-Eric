@@ -110,9 +110,7 @@
         ========================================================== */
 
         .card-wrapper {
-
             width: 100%;
-
             max-width: 500px;
 
             display: flex;
@@ -120,7 +118,6 @@
             flex-direction: column;
 
             align-items: center;
-
             justify-content: center;
 
             gap: 20px;
@@ -134,11 +131,9 @@
         ========================================================== */
 
         .birthdayCard {
-
             position: relative;
 
             width: 440px;
-
             height: 600px;
 
             max-width: 90vw;
@@ -154,10 +149,11 @@
         }
 
 
-        /* CARTÃO ABERTO */
+        /* ==========================================================
+           CARTÃO ABERTO
+        ========================================================== */
 
         .birthdayCard.open {
-
             box-shadow:
                 0 15px 60px
                 rgba(0, 0, 0, 0.6);
@@ -165,7 +161,6 @@
 
 
         .birthdayCard.open .cardFront {
-
             transform:
                 rotateY(-160deg);
         }
@@ -173,10 +168,11 @@
 
         /* ==========================================================
            CAPA
+           
+           NÃO ALTERADA
         ========================================================== */
 
         .cardFront {
-
             position: absolute;
 
             top: 0;
@@ -206,15 +202,31 @@
             background-image:
                 url('css/img/cocoricó.png');
 
-            background-size: cover;
+            background-size:
+                cover;
 
-            background-repeat: no-repeat;
+            background-repeat:
+                no-repeat;
 
-            background-position: center;
+            background-position:
+                center;
         }
 
 
-        /* ELEMENTOS ANTIGOS ESCONDIDOS */
+        /* ==========================================================
+           VERSO ANTIGO DA CAPA
+           
+           O TEXTO AGORA ESTÁ NA PARTE INTERNA
+        ========================================================== */
+
+        .cardFront-verso {
+            display: none !important;
+        }
+
+
+        /* ==========================================================
+           ELEMENTOS ANTIGOS
+        ========================================================== */
 
         .happy,
         .toyou,
@@ -224,185 +236,17 @@
         .plate,
         .front-text,
         .texto-capa {
-
             display: none !important;
         }
 
 
         /* ==========================================================
-           TEXTO DA PARTE INTERNA
-        ========================================================== */
-
-        .cardFront-verso {
-
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 100%;
-
-            padding:
-                40px 25px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: flex-start;
-
-            gap: 20px;
-
-            z-index: 1;
-
-            transform:
-                rotateY(180deg);
-
-            backface-visibility: hidden;
-
-            background-color:
-                #ffdcb5;
-
-            background-image:
-                linear-gradient(
-                    rgba(0,0,0,0.04) 1px,
-                    transparent 1px
-                );
-
-            background-size:
-                100% 32px;
-
-            overflow-y: auto;
-
-            overflow-x: hidden;
-        }
-
-
-        /* ==========================================================
-           TÍTULO
-        ========================================================== */
-
-        .cardFront-verso h2 {
-
-            font-family:
-                'Comic Sans MS',
-                Arial,
-                sans-serif;
-
-            font-size: 32px;
-
-            line-height: 1.1;
-
-            color:
-                #c52e00;
-
-            text-align: center;
-
-            margin:
-                0 0 5px 0;
-
-            text-shadow:
-                1px 1px 0
-                rgba(245, 57, 0, 0.8);
-        }
-
-
-        /* ==========================================================
-           FRASES
-        ========================================================== */
-
-        .cardFront-verso p {
-
-            font-family:
-                Arial,
-                sans-serif;
-
-            font-size: 16px;
-
-            color:
-                #000000;
-
-            line-height: 1.45;
-
-            margin: 0;
-
-            font-weight: bold;
-
-            text-align: center;
-        }
-
-
-        /* CORES DAS FRASES */
-
-        .frase-1 {
-            color: #d62828 !important;
-        }
-
-        .frase-2 {
-            color: #2e7d32 !important;
-        }
-
-        .frase-3 {
-            color: #e65100 !important;
-        }
-
-        .frase-4 {
-            color: #5d4037 !important;
-        }
-
-
-        /* ==========================================================
-           DATA E HORA
-        ========================================================== */
-
-        .bloco-dados {
-
-            background:
-                rgba(255, 152, 0, 0.12);
-
-            border:
-                2px dashed #ff9800;
-
-            padding:
-                15px;
-
-            border-radius:
-                8px;
-
-            margin:
-                5px 0;
-        }
-
-
-        .bloco-dados p {
-
-            font-size:
-                17px;
-
-            margin:
-                6px 0;
-        }
-
-
-        .data-festa {
-            color:
-                #c62828 !important;
-        }
-
-
-        .hora-festa {
-            color:
-                #2e7d32 !important;
-        }
-
-
-        /* ==========================================================
+           PARTE INTERNA
+           
            FOTO DO ERIC
         ========================================================== */
 
         .cardInside {
-
             position: absolute;
 
             width: 100%;
@@ -431,6 +275,188 @@
 
             background-position:
                 center;
+
+            overflow:
+                hidden;
+        }
+
+
+        /* ==========================================================
+           INFORMAÇÕES SOBRE A FOTO
+           
+           MAIS TRANSPARENTE PARA O ERIC APARECER
+        ========================================================== */
+
+        .conteudo-interno {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            padding:
+                40px 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: flex-start;
+
+            align-items: center;
+
+            gap:
+                20px;
+
+            overflow-y:
+                auto;
+
+            overflow-x:
+                hidden;
+
+            /*
+                Antes era 0.80.
+                Agora 0.55 para deixar
+                a foto do Eric aparecer.
+            */
+            background:
+                rgba(255, 255, 255, 0.55);
+        }
+
+
+        /* ==========================================================
+           TÍTULO
+        ========================================================== */
+
+        .conteudo-interno h2 {
+            font-family:
+                'Comic Sans MS',
+                Arial,
+                sans-serif;
+
+            font-size:
+                32px;
+
+            line-height:
+                1.1;
+
+            color:
+                #c52e00;
+
+            text-align:
+                center;
+
+            margin:
+                0 0 5px 0;
+
+            text-shadow:
+                1px 1px 0
+                rgba(255,255,255,0.9);
+        }
+
+
+        /* ==========================================================
+           FRASES
+        ========================================================== */
+
+        .conteudo-interno p {
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size:
+                16px;
+
+            color:
+                #000000;
+
+            line-height:
+                1.45;
+
+            margin:
+                0;
+
+            font-weight:
+                bold;
+
+            text-align:
+                center;
+
+            text-shadow:
+                0 1px 2px
+                rgba(255,255,255,0.8);
+        }
+
+
+        /* ==========================================================
+           CORES DAS FRASES
+        ========================================================== */
+
+        .frase-1 {
+            color:
+                #d62828 !important;
+        }
+
+        .frase-2 {
+            color:
+                #2e7d32 !important;
+        }
+
+        .frase-3 {
+            color:
+                #e65100 !important;
+        }
+
+        .frase-4 {
+            color:
+                #5d4037 !important;
+        }
+
+
+        /* ==========================================================
+           DATA E HORA
+        ========================================================== */
+
+        .bloco-dados {
+            width: 100%;
+
+            background:
+                rgba(255, 152, 0, 0.15);
+
+            border:
+                2px dashed #ff9800;
+
+            padding:
+                15px;
+
+            border-radius:
+                8px;
+
+            margin:
+                5px 0;
+        }
+
+
+        .bloco-dados p {
+            font-size:
+                17px;
+
+            margin:
+                6px 0;
+        }
+
+
+        .data-festa {
+            color:
+                #c62828 !important;
+        }
+
+
+        .hora-festa {
+            color:
+                #2e7d32 !important;
         }
 
 
@@ -439,7 +465,6 @@
         ========================================================== */
 
         .card-buttons {
-
             display: flex;
 
             flex-direction: row;
@@ -448,17 +473,23 @@
 
             align-items: stretch;
 
-            gap: 15px;
+            gap:
+                15px;
 
-            width: 440px;
+            width:
+                440px;
 
-            max-width: 90vw;
+            max-width:
+                90vw;
 
-            z-index: 10;
+            z-index:
+                10;
 
-            opacity: 0;
+            opacity:
+                0;
 
-            visibility: hidden;
+            visibility:
+                hidden;
 
             transform:
                 translateY(-25px);
@@ -471,10 +502,11 @@
 
 
         .card-buttons.show-buttons {
+            opacity:
+                1;
 
-            opacity: 1;
-
-            visibility: visible;
+            visibility:
+                visible;
 
             transform:
                 translateY(0);
@@ -482,20 +514,20 @@
 
 
         /* ==========================================================
-           BOTÃO
+           BOTÕES
         ========================================================== */
 
         .btn {
-
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
-            width: 50%;
+            width:
+                50%;
 
-            min-height: 48px;
+            min-height:
+                48px;
 
             padding:
                 10px;
@@ -535,16 +567,16 @@
 
 
         .btn:hover {
-
             transform:
                 scale(1.05);
         }
 
 
-        /* WHATSAPP */
+        /* ==========================================================
+           WHATSAPP
+        ========================================================== */
 
         .btn-whatsapp {
-
             background:
                 linear-gradient(
                     135deg,
@@ -554,10 +586,11 @@
         }
 
 
-        /* LOCAL */
+        /* ==========================================================
+           LOCAL
+        ========================================================== */
 
         .btn-location {
-
             background:
                 linear-gradient(
                     135deg,
@@ -569,26 +602,19 @@
 
         /* ==========================================================
            📱 CELULAR
-           
-           AQUI ESTÁ A ALTERAÇÃO PRINCIPAL.
-
-           O cartão original continua sendo 440 x 600.
-           No celular, usamos SCALE para reduzir o CARTÃO INTEIRO.
-
-           Assim a animação 3D continua trabalhando com o cartão
-           original, mas o conjunto é visualmente reduzido.
         ========================================================== */
 
         @media screen and (max-width: 600px) {
 
             body {
+                display:
+                    block;
 
-                display: block;
-
-                min-height: 100dvh;
+                min-height:
+                    100dvh;
 
                 padding:
-                    10px 0 25px;
+                    10px 0 30px;
 
                 overflow-x:
                     hidden;
@@ -599,7 +625,6 @@
 
 
             .card-wrapper {
-
                 width:
                     100%;
 
@@ -611,199 +636,233 @@
 
                 gap:
                     15px;
-
-                /*
-                Dá espaço para o cartão aberto.
-                */
-                overflow:
-                    visible;
             }
 
 
-            /*
-            ======================================================
-            ÁREA DE ESCALA
-            ======================================================
-
-            O cartão continua internamente com 440 x 600.
-
-            O que muda é a escala visual.
-
-            0.42 = cartão aberto compacto o suficiente
-            para telas de celular.
-
-            A proporção do cartão permanece.
-            */
-
             .birthdayCard {
-
                 width:
+                    94vw;
+
+                max-width:
                     440px;
 
                 height:
+                    125vw;
+
+                max-height:
                     600px;
-
-                max-width:
-                    none;
-
-                min-width:
-                    440px;
 
                 min-height:
-                    600px;
-
-                /*
-                ESCALA DO CARTÃO INTEIRO
-                */
-
-                transform:
-                    scale(0.42)
-                    perspective(2500px);
-
-                transform-origin:
-                    center center;
-
-                /*
-                O espaço ocupado visualmente
-                também é corrigido.
-                */
+                    480px;
 
                 margin:
-                    -174px auto -174px;
-
+                    0 auto;
             }
 
 
-            /*
-            Quando abrir, NÃO alteramos a animação.
+            /* ======================================================
+               INTERNO NO CELULAR
+            ====================================================== */
 
-            Apenas mantemos o mesmo cartão escalado.
-            */
+            .conteudo-interno {
+                padding:
+                    25px 18px;
 
-            .birthdayCard.open {
+                gap:
+                    13px;
 
-                box-shadow:
-                    0 15px 60px
-                    rgba(0, 0, 0, 0.6);
+                /*
+                    Mantém a foto visível
+                    também no celular.
+                */
+                background:
+                    rgba(255, 255, 255, 0.55);
             }
 
 
-            /*
-            ======================================================
-            BOTÕES
-            ======================================================
-            */
+            .conteudo-interno h2 {
+                font-size:
+                    clamp(
+                        20px,
+                        6vw,
+                        30px
+                    );
+            }
+
+
+            .conteudo-interno p {
+                font-size:
+                    clamp(
+                        11px,
+                        3.6vw,
+                        16px
+                    );
+
+                line-height:
+                    1.4;
+            }
+
+
+            .bloco-dados {
+                padding:
+                    10px;
+            }
+
+
+            .bloco-dados p {
+                font-size:
+                    clamp(
+                        11px,
+                        3.5vw,
+                        16px
+                    );
+
+                line-height:
+                    1.3;
+
+                margin:
+                    4px 0;
+            }
+
+
+            /* BOTÕES */
 
             .card-buttons {
-
                 width:
-                    90vw;
+                    94vw;
 
                 max-width:
-                    380px;
+                    440px;
 
                 gap:
                     8px;
-
-                margin-top:
-                    15px;
             }
 
 
             .btn {
-
                 min-height:
-                    46px;
+                    50px;
 
                 padding:
-                    8px 5px;
+                    9px 6px;
 
                 font-size:
                     clamp(
-                        8px,
-                        2.8vw,
-                        12px
+                        9px,
+                        3vw,
+                        13px
                     );
             }
-
         }
 
 
         /* ==========================================================
-           📱 IPHONES / ANDROID PEQUENOS
+           📱 CELULARES PEQUENOS
         ========================================================== */
 
-        @media screen and (max-width: 430px) {
+        @media screen and (max-width: 380px) {
 
             .birthdayCard {
+                width:
+                    94vw;
 
-                /*
-                Escala menor para garantir que
-                o cartão ABERTO inteiro apareça.
-                */
+                height:
+                    125vw;
 
-                transform:
-                    scale(0.40)
-                    perspective(2500px);
-
-                transform-origin:
-                    center center;
-
-                margin:
-                    -180px auto -180px;
+                min-height:
+                    450px;
             }
 
-        }
+
+            .conteudo-interno {
+                padding:
+                    22px 15px;
+
+                gap:
+                    11px;
+            }
 
 
-        /* ==========================================================
-           📱 TELAS MUITO PEQUENAS
-        ========================================================== */
+            .conteudo-interno h2 {
+                font-size:
+                    19px;
+            }
 
-        @media screen and (max-width: 360px) {
 
-            .birthdayCard {
+            .conteudo-interno p {
+                font-size:
+                    10px;
 
-                transform:
-                    scale(0.35)
-                    perspective(2500px);
+                line-height:
+                    1.35;
+            }
 
-                transform-origin:
-                    center center;
 
-                margin:
-                    -195px auto -195px;
+            .bloco-dados p {
+                font-size:
+                    10px;
             }
 
 
             .card-buttons {
-
                 width:
                     94vw;
             }
 
+
+            .btn {
+                font-size:
+                    9px;
+
+                min-height:
+                    48px;
+            }
         }
 
 
         /* ==========================================================
-           📱 TELAS EXTREMAMENTE PEQUENAS
+           📱 CELULAR MUITO PEQUENO
         ========================================================== */
 
-        @media screen and (max-width: 320px) {
+        @media screen and (max-width: 340px) {
 
             .birthdayCard {
+                width:
+                    94vw;
 
-                transform:
-                    scale(0.31)
-                    perspective(2500px);
+                height:
+                    125vw;
 
-                transform-origin:
-                    center center;
-
-                margin:
-                    -207px auto -207px;
+                min-height:
+                    430px;
             }
 
+
+            .conteudo-interno h2 {
+                font-size:
+                    18px;
+            }
+
+
+            .conteudo-interno p {
+                font-size:
+                    9px;
+
+                line-height:
+                    1.3;
+            }
+
+
+            .bloco-dados p {
+                font-size:
+                    9px;
+            }
+
+
+            .btn {
+                font-size:
+                    8px;
+            }
         }
 
     </style>
@@ -851,12 +910,16 @@
     <div class="card-wrapper">
 
 
-        <!-- CARTÃO -->
+        <!-- ======================================================
+             CARTÃO
+        ====================================================== -->
 
         <div
             class="birthdayCard"
+
             onclick="
                 this.classList.add('open');
+
                 document
                     .getElementById('botoes-acao')
                     .classList.add('show-buttons');
@@ -865,12 +928,25 @@
 
 
             <!-- ==================================================
-                 CAPA — NÃO ALTERADA
+                 CAPA DO COCORICÓ
+                 
+                 NÃO FOI ALTERADA
             ================================================== -->
 
             <div class="cardFront">
+            </div>
 
-                <div class="cardFront-verso">
+
+            <!-- ==================================================
+                 PARTE INTERNA
+                 
+                 FOTO DO ERIC + TEXTO
+            ================================================== -->
+
+            <div class="cardInside">
+
+                <div class="conteudo-interno">
+
 
                     <h2>
                         <strong>02 ANINHOS!</strong>
@@ -883,7 +959,9 @@
 
 
                     <p class="frase-2">
-                        O Alipio já está relinchando de alegria e o Júlio arrumou o chapéu, porque o chefe do galinheiro, também conhecido como Eric, vai completar 2 aninhos!
+                        O Alipio já está relinchando de alegria e o Júlio
+                        arrumou o chapéu, porque o chefe do galinheiro,
+                        também conhecido como Eric, vai completar 2 aninhos!
                     </p>
 
 
@@ -895,11 +973,15 @@
 
 
                     <p class="frase-4">
-                        Prepare o cardio para correr atrás do aniversariante, porque prometemos muitos doces e zero regras. Confirme logo para o Alípio não comer tudo!
+                        Prepare o cardio para correr atrás do aniversariante,
+                        porque prometemos muitos doces e zero regras.
+                        Confirme logo para o Alípio não comer tudo!
                     </p>
 
 
-                    <!-- DATA -->
+                    <!-- ==================================================
+                         DATA
+                    ================================================== -->
 
                     <div class="bloco-dados">
 
@@ -915,16 +997,10 @@
 
                     </div>
 
+
                 </div>
 
             </div>
-
-
-            <!-- ==================================================
-                 FOTO INTERNA — NÃO ALTERADA
-            ================================================== -->
-
-            <div class="cardInside"></div>
 
 
         </div>
