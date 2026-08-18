@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVERSÁRIO DO FAZENDEIRO ERIC</title>
+    
+    <style>
+        /* ==========================================================================
+           1. TELA DE ENTRADA
+           ========================================================================== */
+        #tela-entrada {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url('img3/fenos.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .btn-entrar {
+            padding: 18px 40px;
+            font-family: Arial, sans-serif;
+            font-size: 22px;
+            font-weight: bold;
+            color: #000000;
+            background: linear-gradient(135deg, #ffc505 35%, #e65100 100%);
+            border: 2px solid #f1b10193;
+            border-radius: 35px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgb(255, 174, 0);
+        }
+
+        /* ==========================================================================
+           2. ESTRUTURA GLOBAL
+           ========================================================================== */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-image: url('img3/fenos.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .card-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* ==========================================================================
+           3. CARTÃO
+           ========================================================================== */
+        .birthdayCard {
+            position: relative;
+            width: 90vw;
+            max-width: 440px;
+            height: 600px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transform: perspective(2500px);
+            margin: 0 auto;
+        }
+
+        .birthdayCard.open {
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .birthdayCard.open .cardFront {
+            transform: rotateY(-160deg);
+        }
+
+        /* ==========================================================================
+           4. CAPA
+           ========================================================================== */
+        .cardFront {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: left;
+            box-shadow:
+                inset 100px 20px 100px rgba(0,0,0,.13),
+                30px 0 50px rgba(0,0,0,0.1);
+            transition: 1s ease;
+            z-index: 2;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+
+            background-image: url('css/img/cocoricó.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .happy,
+        .toyou,
+        .bday,
+        .wrap-deco,
+        .decorations,
+        .plate,
+        .front-text,
+        .texto-capa {
+            display: none !important;
+        }
+
+        /* ==========================================================================
+           5. PARTE INTERNA DA CAPA
+           ========================================================================== */
+        .cardFront-verso {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 40px 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            z-index: 1;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+
+            background-color: #ffdcb5;
+            background-image:
+                linear-gradient(
+                    rgba(0,0,0,0.04) 1px,
+                    transparent 1px
+                );
+            background-size: 100% 32px;
+        }
+
+        /* TÍTULO */
+        .cardFront-verso h2 {
+            font-family: 'Comic Sans MS', Arial, sans-serif;
+            font-size: 32px;
+            color: #c52e00;
+            text-align: center;
+            margin: 0 0 10px 0;
+            text-shadow: 1px 1px 0px rgba(245, 57, 0, 0.8);
+        }
+
+        /* FRASES */
+        .cardFront-verso p {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* ==========================================================================
+           CORES INDIVIDUAIS DAS FRASES
+           ========================================================================== */
+
+        /* Alerta vermelho */
+        .frase-1 {
+            color: #d62828;
+        }
+
+        /* Eric vai completar 2 aninhos */
+        .frase-2 {
+            color: #2e7d32;
+        }
+
+        /* Venha bagunçar */
+        .frase-3 {
+            color: #e65100;
+        }
+
+        /* Prepare o cardio */
+        .frase-4 {
+            color: #5d4037;
+        }
+
+        /* ==========================================================================
+           BLOCO DE DATA E HORA
+           ========================================================================== */
+        .bloco-dados {
+            background: rgba(255, 152, 0, 0.12);
+            border: 2px dashed #ff9800;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .bloco-dados p {
+            font-size: 18px;
+            margin: 6px 0;
+        }
+
+        /* Data */
+        .data-festa {
+            color: #c62828;
+        }
+
+        /* Hora */
+        .hora-festa {
+            color: #2e7d32;
+        }
+
+        /* ==========================================================================
+           6. IMAGEM DE DENTRO
+           ========================================================================== */
+        .cardInside {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            left: 0;
+            top: 0;
+
+            box-shadow: inset 100px 20px 100px rgba(0,0,0,0.2);
+
+            background-color: #ffffff;
+
+            background-image: url('css/img2/eric.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* ==========================================================================
+           7. BOTÕES
+           ========================================================================== */
+        .card-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 15px;
+
+            width: 90vw;
+            max-width: 440px;
+
+            z-index: 10;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform: translateY(-25px);
+
+            transition:
+                opacity 0.6s ease,
+                transform 0.6s ease,
+                visibility 0.6s;
+        }
+
+        .card-buttons.show-buttons {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            width: 48%;
+            padding: 12px 10px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fffcfc;
+            border-radius: 25px;
+
+            box-shadow:
+                0 4px 6px rgba(0, 0, 0, 0.2);
+
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        /* WhatsApp */
+        .btn-whatsapp {
+            background: linear-gradient(
+                135deg,
+                #25d366 0%,
+                #128c7e 100%
+            );
+        }
+
+        /* Local */
+        .btn-location {
+            background: linear-gradient(
+                135deg,
+                #ff9800 0%,
+                #e65100 100%
+            );
+        }
+
+        /* ==========================================================================
+           8. CELULAR
+           ========================================================================== */
+        @media (max-width: 500px) {
+
+            .birthdayCard {
+                width: 90vw;
+                height: 600px;
+            }
+
+            .cardFront-verso {
+                padding: 30px 20px;
+                gap: 15px;
+            }
+
+            .cardFront-verso h2 {
+                font-size: 27px;
+            }
+
+            .cardFront-verso p {
+                font-size: 14px;
+            }
+
+            .bloco-dados p {
+                font-size: 15px;
+            }
+
+            .card-buttons {
+                gap: 10px;
+            }
+
+            .btn {
+                font-size: 12px;
+                padding: 11px 7px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================================================
+         TELA DE ENTRADA
+         ======================================================================== -->
+
+    <div id="tela-entrada">
+
+        <button
+            class="btn-entrar"
+            onclick="
+                document.getElementById('bgMusic').play();
+                this.parentElement.style.display='none';
+            "
+        >
+            🐥VENHA BRINCAR COMIGO🐥
+        </button>
+
+    </div>
+
+
+    <!-- ========================================================================
+         MÚSICA
+         ======================================================================== -->
+
+    <audio
+        id="bgMusic"
+        src="audio/cocorico.mp3"
+        preload="auto"
+        loop>
+    </audio>
+
+
+    <!-- ========================================================================
+         CARTÃO
+         ======================================================================== -->
+
+    <div class="card-wrapper">
+
+        <div
+            class="birthdayCard"
+            onclick="
+                this.classList.add('open');
+                document
+                    .getElementById('botoes-acao')
+                    .classList.add('show-buttons');
+            "
+        >
+
+            <!-- CAPA -->
+
+            <div class="cardFront">
+
+                <div class="cardFront-verso">
+
+                    <h2>
+                       <strong>MEUS 02 ANINHOS!</strong>
+                    </h2>
+
+
+                    <!-- FRASE 1 -->
+
+                    <p class="frase-1">
+                       <strong>Alerta vermelho no paiol!</strong>
+                    </p>
+
+
+                    <!-- FRASE 2 -->
+
+                    <p class="frase-2">
+                        O Alipio já está relinchando de alegria e o Júlio
+                        arrumou o chapéu, porque o chefe do galinheiro,
+                        também conhecido como Eric, vai completar 2 aninhos!
+                    </p>
+
+
+                    <!-- FRASE 3 -->
+
+                    <p class="frase-3">
+                        Venha bagunçar com a gente na festa comunitária.
+                    </p>
+
+
+                    <!-- FRASE 4 -->
+
+                    <p class="frase-4">
+                        Prepare o cardio para correr atrás do aniversariante,
+                        porque prometemos muitos doces e zero regras.
+                        Confirme logo para o Alípio não comer tudo!
+                    </p>
+
+
+                    <!-- DATA E HORA -->
+
+                    <div class="bloco-dados">
+
+                        <p class="data-festa">
+                            DIA DE BRINCAR: 13/09/2026
+                        </p>
+
+                        <p class="hora-festa">
+                            HORA DA COMIDA: Às 13:00 Horas
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PARTE INTERNA -->
+
+            <div class="cardInside"></div>
+
+        </div>
+
+
+        <!-- ====================================================================
+             BOTÕES ABAIXO DO CARTÃO
+             ==================================================================== -->
+
+        <div
+            id="botoes-acao"
+            class="card-buttons"
+        >
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="https://wa.me/5519996789314?text=Presen%C3%A7a%20confirmada%20no%20paiol%21%20J%C3%A1%20separei%20minhas%20botas%20e%20meu%20chap%C3%A9u%20de%20palha.%20Pode%20contar%20comigo%20para%20encarar%20a%20festa%20e%20ajudar%20a%20comer%20todos%20os%20doces%21"
+                target="_blank"
+                class="btn btn-whatsapp"
+            >
+                <strong> 💚 CONFIRMAR COM A MAMÃE </strong>
+            </a>
+
+
+            <!-- GOOGLE MAPS -->
+
+            <a
+                href="https://maps.app.goo.gl/LYmkdDKAwS8KjAyYA"
+                target="_blank"
+                class="btn btn-location"
+            >
+                <strong>📍 LOCAL DA MINHA FAZENDA</strong>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
