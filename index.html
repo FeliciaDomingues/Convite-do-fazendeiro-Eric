@@ -1,87 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ANIVERSÁRIO DO FAZENDEIRO ERIC</title>
 
     <!-- FOTO DA ABA DO NAVEGADOR -->
-    <link
-        rel="icon"
-        type="image/png"
-        href="img4/julio.png"
-    >
-
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
 
         /* ==========================================================
            CONFIGURAÇÃO GERAL
-           ========================================================== */
+        ========================================================== */
 
         * {
             box-sizing: border-box;
         }
 
-
-        html {
+        html,
+        body {
+            margin: 0;
+            padding: 0;
             width: 100%;
             min-height: 100%;
         }
 
-
         body {
-
-            width: 100%;
-
             min-height: 100vh;
             min-height: 100dvh;
 
-            margin: 0;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             overflow-x: hidden;
-
             overflow-y: auto;
 
-            background-image:
-                url('img3/fenos.png');
-
+            background-image: url('img3/fenos.png');
             background-size: cover;
-
             background-repeat: no-repeat;
-
             background-position: center;
 
-            font-family: Arial, sans-serif;
-
-            padding:
-                max(10px, env(safe-area-inset-top))
-                10px
-                max(15px, env(safe-area-inset-bottom))
-                10px;
+            padding: 20px 10px;
         }
-
 
 
         /* ==========================================================
            TELA DE ENTRADA
-           ========================================================== */
+        ========================================================== */
 
         #tela-entrada {
-
             position: fixed;
 
             inset: 0;
@@ -92,18 +62,12 @@
             z-index: 9999;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
-            background-image:
-                url('img3/fenos.png');
-
+            background-image: url('img3/fenos.png');
             background-size: cover;
-
             background-repeat: no-repeat;
-
             background-position: center;
 
             padding: 20px;
@@ -111,16 +75,13 @@
 
 
         .btn-entrar {
-
-            padding:
-                16px 30px;
+            padding: 18px 40px;
 
             max-width: 90vw;
 
             font-family: Arial, sans-serif;
 
-            font-size:
-                clamp(17px, 5vw, 22px);
+            font-size: 22px;
 
             font-weight: bold;
 
@@ -133,8 +94,7 @@
                     #e65100 100%
                 );
 
-            border:
-                2px solid #f1b10193;
+            border: 2px solid #f1b10193;
 
             border-radius: 35px;
 
@@ -145,10 +105,9 @@
         }
 
 
-
         /* ==========================================================
            ÁREA DO CONVITE
-           ========================================================== */
+        ========================================================== */
 
         .card-wrapper {
 
@@ -164,26 +123,25 @@
 
             justify-content: center;
 
-            gap: 14px;
+            gap: 20px;
 
             margin: auto;
         }
 
 
-
         /* ==========================================================
            CARTÃO
-           
-           DESKTOP
-           ========================================================== */
+        ========================================================== */
 
         .birthdayCard {
 
             position: relative;
 
-            width: min(90vw, 440px);
+            width: 440px;
 
             height: 600px;
+
+            max-width: 90vw;
 
             cursor: pointer;
 
@@ -193,10 +151,10 @@
                 perspective(2500px);
 
             margin: 0 auto;
-
-            flex-shrink: 0;
         }
 
+
+        /* CARTÃO ABERTO */
 
         .birthdayCard.open {
 
@@ -213,16 +171,16 @@
         }
 
 
-
         /* ==========================================================
            CAPA
-           ========================================================== */
+        ========================================================== */
 
         .cardFront {
 
             position: absolute;
 
-            inset: 0;
+            top: 0;
+            left: 0;
 
             width: 100%;
             height: 100%;
@@ -237,7 +195,7 @@
                 rgba(0,0,0,0.1);
 
             transition:
-                transform 1s ease;
+                1s ease;
 
             z-index: 2;
 
@@ -256,8 +214,7 @@
         }
 
 
-
-        /* Elementos antigos escondidos */
+        /* ELEMENTOS ANTIGOS ESCONDIDOS */
 
         .happy,
         .toyou,
@@ -272,22 +229,22 @@
         }
 
 
-
         /* ==========================================================
-           TEXTO DA PARTE INTERNA DA CAPA
-           ========================================================== */
+           TEXTO DA PARTE INTERNA
+        ========================================================== */
 
         .cardFront-verso {
 
             position: absolute;
 
-            inset: 0;
+            top: 0;
+            left: 0;
 
             width: 100%;
             height: 100%;
 
             padding:
-                38px 25px;
+                40px 25px;
 
             display: flex;
 
@@ -295,7 +252,7 @@
 
             justify-content: flex-start;
 
-            gap: 18px;
+            gap: 20px;
 
             z-index: 1;
 
@@ -316,14 +273,15 @@
             background-size:
                 100% 32px;
 
-            overflow: hidden;
-        }
+            overflow-y: auto;
 
+            overflow-x: hidden;
+        }
 
 
         /* ==========================================================
            TÍTULO
-           ========================================================== */
+        ========================================================== */
 
         .cardFront-verso h2 {
 
@@ -332,91 +290,73 @@
                 Arial,
                 sans-serif;
 
-            font-size:
-                32px;
+            font-size: 32px;
+
+            line-height: 1.1;
 
             color:
                 #c52e00;
 
-            text-align:
-                center;
+            text-align: center;
 
             margin:
                 0 0 5px 0;
 
-            line-height:
-                1.1;
-
             text-shadow:
                 1px 1px 0
                 rgba(245, 57, 0, 0.8);
-
-            flex-shrink: 0;
         }
-
 
 
         /* ==========================================================
            FRASES
-           ========================================================== */
+        ========================================================== */
 
         .cardFront-verso p {
 
             font-family:
-                Arial, sans-serif;
+                Arial,
+                sans-serif;
 
-            font-size:
-                16px;
+            font-size: 16px;
 
-            line-height:
-                1.4;
+            color:
+                #000000;
 
-            margin:
-                0;
+            line-height: 1.45;
 
-            font-weight:
-                bold;
+            margin: 0;
 
-            text-align:
-                center;
+            font-weight: bold;
 
-            flex-shrink:
-                0;
+            text-align: center;
         }
 
+
+        /* CORES DAS FRASES */
 
         .frase-1 {
-            color:
-                #d62828 !important;
+            color: #d62828 !important;
         }
-
 
         .frase-2 {
-            color:
-                #2e7d32 !important;
+            color: #2e7d32 !important;
         }
-
 
         .frase-3 {
-            color:
-                #e65100 !important;
+            color: #e65100 !important;
         }
-
 
         .frase-4 {
-            color:
-                #5d4037 !important;
+            color: #5d4037 !important;
         }
-
 
 
         /* ==========================================================
-           DATA / HORA
-           ========================================================== */
+           DATA E HORA
+        ========================================================== */
 
         .bloco-dados {
-
-            width: 100%;
 
             background:
                 rgba(255, 152, 0, 0.12);
@@ -425,16 +365,13 @@
                 2px dashed #ff9800;
 
             padding:
-                12px;
+                15px;
 
             border-radius:
                 8px;
 
             margin:
-                3px 0 0 0;
-
-            flex-shrink:
-                0;
+                5px 0;
         }
 
 
@@ -444,39 +381,37 @@
                 17px;
 
             margin:
-                5px 0;
+                6px 0;
         }
 
 
         .data-festa {
-
             color:
                 #c62828 !important;
         }
 
 
         .hora-festa {
-
             color:
                 #2e7d32 !important;
         }
 
 
-
         /* ==========================================================
-           FOTO INTERNA
-           ========================================================== */
+           FOTO DO ERIC
+        ========================================================== */
 
         .cardInside {
 
             position: absolute;
 
-            inset: 0;
-
             width: 100%;
             height: 100%;
 
             z-index: 1;
+
+            left: 0;
+            top: 0;
 
             box-shadow:
                 inset 100px 20px 100px
@@ -499,10 +434,9 @@
         }
 
 
-
         /* ==========================================================
-           BOTÕES
-           ========================================================== */
+           BOTÕES EMBAIXO DO CARTÃO
+        ========================================================== */
 
         .card-buttons {
 
@@ -512,65 +446,65 @@
 
             justify-content: center;
 
-            gap: 12px;
+            align-items: stretch;
 
-            width:
-                min(90vw, 440px);
+            gap: 15px;
 
-            opacity:
-                0;
+            width: 440px;
 
-            visibility:
-                hidden;
+            max-width: 90vw;
+
+            z-index: 10;
+
+            opacity: 0;
+
+            visibility: hidden;
 
             transform:
-                translateY(-20px);
+                translateY(-25px);
 
             transition:
-                opacity .6s ease,
-                transform .6s ease,
-                visibility .6s;
-
-            flex-shrink:
-                0;
+                opacity 0.6s ease,
+                transform 0.6s ease,
+                visibility 0.6s;
         }
 
 
+        /* BOTÕES APARECEM */
+
         .card-buttons.show-buttons {
 
-            opacity:
-                1;
+            opacity: 1;
 
-            visibility:
-                visible;
+            visibility: visible;
 
             transform:
                 translateY(0);
         }
 
 
+        /* ==========================================================
+           BOTÃO
+        ========================================================== */
+
         .btn {
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            width:
-                50%;
+            width: 50%;
 
-            min-height:
-                44px;
+            min-height: 48px;
 
             padding:
-                10px 8px;
+                10px;
 
             font-family:
-                Arial, sans-serif;
+                Arial,
+                sans-serif;
 
             font-size:
                 13px;
@@ -595,24 +529,21 @@
 
             box-shadow:
                 0 4px 6px
-                rgba(0, 0, 0, 0.2);
+                rgba(0,0,0,0.2);
 
             transition:
-                transform .2s ease;
+                transform 0.2s;
         }
 
 
         .btn:hover {
+
             transform:
-                scale(1.04);
+                scale(1.05);
         }
 
 
-        .btn:active {
-            transform:
-                scale(.97);
-        }
-
+        /* WHATSAPP */
 
         .btn-whatsapp {
 
@@ -625,6 +556,8 @@
         }
 
 
+        /* LOCAL */
+
         .btn-location {
 
             background:
@@ -636,25 +569,26 @@
         }
 
 
-
         /* ==========================================================
-           CELULAR
-           
-           AQUI ESTÁ A PRINCIPAL CORREÇÃO
-           ========================================================== */
+           📱 CELULAR
+        ========================================================== */
 
-        @media (max-width: 600px) {
+        @media screen and (max-width: 600px) {
 
             body {
 
-                align-items:
-                    flex-start;
+                display: block;
+
+                min-height: 100dvh;
 
                 padding:
-                    12px 0 20px 0;
+                    10px 0 30px;
 
-                min-height:
-                    100dvh;
+                overflow-x:
+                    hidden;
+
+                overflow-y:
+                    auto;
             }
 
 
@@ -666,71 +600,73 @@
                 max-width:
                     none;
 
-                gap:
-                    12px;
-
                 padding:
-                    5px 0;
+                    10px 0 20px;
+
+                gap:
+                    15px;
             }
 
 
             /*
-             * O cartão usa a largura disponível,
-             * mas a ALTURA é calculada pela altura
-             * real da tela.
-             */
+            O cartão ocupa quase toda
+            a largura disponível.
+            */
 
             .birthdayCard {
 
                 width:
-                    min(
-                        86vw,
-                        350px
-                    );
+                    94vw;
 
-                /*
-                 * Mantém proporção semelhante
-                 * em celulares diferentes.
-                 */
-
-                aspect-ratio:
-                    0.72;
+                max-width:
+                    440px;
 
                 height:
-                    auto;
-
-                /*
-                 * Nunca ultrapassa a tela.
-                 */
+                    125vw;
 
                 max-height:
-                    calc(100dvh - 150px);
-
-                /*
-                 * E nunca fica pequeno demais.
-                 */
+                    600px;
 
                 min-height:
-                    400px;
+                    480px;
+
+                margin:
+                    0 auto;
             }
 
 
+            .cardFront {
 
-            /* ======================================================
-               TEXTO MOBILE
-               ====================================================== */
+                width:
+                    100%;
+
+                height:
+                    100%;
+            }
+
 
             .cardFront-verso {
 
+                width:
+                    100%;
+
+                height:
+                    100%;
+
                 padding:
-                    clamp(16px, 4.5vw, 24px)
-                    clamp(13px, 4vw, 20px);
+                    25px 18px;
 
                 gap:
-                    clamp(7px, 2vw, 12px);
+                    13px;
 
-                overflow:
+                overflow-y:
+                    auto;
+
+                overflow-x:
                     hidden;
+
+                -webkit-overflow-scrolling:
+                    touch;
             }
 
 
@@ -738,16 +674,13 @@
 
                 font-size:
                     clamp(
-                        19px,
-                        5.8vw,
-                        25px
+                        20px,
+                        6vw,
+                        30px
                     );
 
                 line-height:
                     1.1;
-
-                margin:
-                    0 0 2px 0;
             }
 
 
@@ -755,23 +688,20 @@
 
                 font-size:
                     clamp(
-                        10px,
-                        3.25vw,
-                        13px
+                        11px,
+                        3.6vw,
+                        16px
                     );
 
                 line-height:
-                    1.28;
+                    1.4;
             }
 
 
             .bloco-dados {
 
                 padding:
-                    clamp(7px, 2.5vw, 11px);
-
-                margin:
-                    2px 0 0 0;
+                    10px;
             }
 
 
@@ -779,229 +709,174 @@
 
                 font-size:
                     clamp(
-                        10px,
-                        3.15vw,
-                        13px
+                        11px,
+                        3.5vw,
+                        16px
                     );
 
                 line-height:
-                    1.25;
+                    1.3;
 
                 margin:
-                    3px 0;
+                    4px 0;
             }
 
 
-
-            /* ======================================================
-               BOTÕES MOBILE
-               ====================================================== */
+            /* BOTÕES */
 
             .card-buttons {
 
                 width:
-                    min(
-                        86vw,
-                        350px
-                    );
+                    94vw;
+
+                max-width:
+                    440px;
 
                 gap:
-                    7px;
+                    8px;
             }
 
 
             .btn {
 
                 min-height:
-                    42px;
+                    50px;
 
                 padding:
-                    8px 5px;
+                    9px 6px;
 
                 font-size:
                     clamp(
-                        8px,
-                        2.7vw,
-                        11px
+                        9px,
+                        3vw,
+                        13px
                     );
-
-                border-radius:
-                    22px;
             }
-
         }
 
 
-
         /* ==========================================================
-           CELULARES MUITO PEQUENOS
-           ========================================================== */
+           📱 CELULARES PEQUENOS
+        ========================================================== */
 
-        @media (max-height: 700px) and (max-width: 600px) {
+        @media screen and (max-width: 380px) {
 
             .birthdayCard {
 
                 width:
-                    min(
-                        82vw,
-                        320px
-                    );
+                    94vw;
 
-                max-height:
-                    calc(100dvh - 135px);
+                height:
+                    125vw;
 
                 min-height:
-                    360px;
+                    450px;
             }
 
 
             .cardFront-verso {
 
                 padding:
-                    12px 14px;
+                    22px 15px;
 
                 gap:
-                    6px;
+                    11px;
             }
 
 
             .cardFront-verso h2 {
 
                 font-size:
-                    clamp(
-                        17px,
-                        5vw,
-                        22px
-                    );
+                    19px;
             }
 
 
             .cardFront-verso p {
 
                 font-size:
-                    clamp(
-                        9px,
-                        2.8vw,
-                        11px
-                    );
+                    10px;
 
                 line-height:
-                    1.22;
-            }
-
-
-            .bloco-dados {
-
-                padding:
-                    6px;
+                    1.35;
             }
 
 
             .bloco-dados p {
 
                 font-size:
-                    clamp(
-                        9px,
-                        2.8vw,
-                        11px
-                    );
-
-                margin:
-                    2px 0;
+                    10px;
             }
 
 
             .card-buttons {
 
-                gap:
-                    5px;
+                width:
+                    94vw;
             }
 
 
             .btn {
 
+                font-size:
+                    9px;
+
                 min-height:
-                    38px;
+                    48px;
+            }
+        }
+
+
+        /* ==========================================================
+           📱 CELULAR MUITO PEQUENO
+        ========================================================== */
+
+        @media screen and (max-width: 340px) {
+
+            .birthdayCard {
+
+                width:
+                    94vw;
+
+                height:
+                    125vw;
+
+                min-height:
+                    430px;
+            }
+
+
+            .cardFront-verso h2 {
+
+                font-size:
+                    18px;
+            }
+
+
+            .cardFront-verso p {
+
+                font-size:
+                    9px;
+
+                line-height:
+                    1.3;
+            }
+
+
+            .bloco-dados p {
+
+                font-size:
+                    9px;
+            }
+
+
+            .btn {
 
                 font-size:
                     8px;
-
-                padding:
-                    7px 4px;
-            }
-        }
-
-
-
-        /* ==========================================================
-           TELAS EXTREMAMENTE PEQUENAS
-           ========================================================== */
-
-        @media (max-width: 340px) {
-
-            .birthdayCard {
-
-                width:
-                    84vw;
-
-                min-height:
-                    350px;
-            }
-
-
-            .cardFront-verso {
-
-                padding:
-                    10px 11px;
-
-                gap:
-                    5px;
-            }
-
-
-            .cardFront-verso h2 {
-
-                font-size:
-                    17px;
-            }
-
-
-            .cardFront-verso p {
-
-                font-size:
-                    8.8px;
-
-                line-height:
-                    1.2;
-            }
-
-
-            .bloco-dados {
-
-                padding:
-                    5px;
-            }
-
-
-            .bloco-dados p {
-
-                font-size:
-                    8.8px;
-            }
-
-
-            .btn {
-
-                font-size:
-                    7.5px;
-
-                min-height:
-                    36px;
             }
         }
 
     </style>
-
 </head>
 
 
@@ -1010,7 +885,7 @@
 
     <!-- ==========================================================
          TELA DE ENTRADA
-         ========================================================== -->
+    ========================================================== -->
 
     <div id="tela-entrada">
 
@@ -1027,10 +902,9 @@
     </div>
 
 
-
     <!-- ==========================================================
          MÚSICA
-         ========================================================== -->
+    ========================================================== -->
 
     <audio
         id="bgMusic"
@@ -1040,24 +914,19 @@
     </audio>
 
 
-
     <!-- ==========================================================
          CONVITE
-         ========================================================== -->
+    ========================================================== -->
 
     <div class="card-wrapper">
 
 
-        <!-- ======================================================
-             CARTÃO
-             ====================================================== -->
+        <!-- CARTÃO -->
 
         <div
             class="birthdayCard"
-
             onclick="
                 this.classList.add('open');
-
                 document
                     .getElementById('botoes-acao')
                     .classList.add('show-buttons');
@@ -1067,13 +936,11 @@
 
             <!-- ==================================================
                  CAPA
-                 ================================================== -->
+            ================================================== -->
 
             <div class="cardFront">
 
-
                 <div class="cardFront-verso">
-
 
                     <h2>
                         <strong>02 ANINHOS!</strong>
@@ -1081,55 +948,49 @@
 
 
                     <p class="frase-1">
-                        <strong>Alerta vermelho no paiol!</strong>
+                        Alerta vermelho no paiol!
                     </p>
 
 
                     <p class="frase-2">
-                        O Alipio já está relinchando de alegria
-                        e o Júlio arrumou o chapéu, porque o chefe
-                        do galinheiro, também conhecido como Eric,
-                        vai completar 2 aninhos!
+                        O Alipio já está relinchando de alegria e o Júlio arrumou o chapéu, porque o chefe do galinheiro, também conhecido como Eric, vai completar 2 aninhos!
                     </p>
 
 
                     <p class="frase-3">
-                        </strong>Venha bagunçar com a gente na festa comunitária.</strong>
+                        <strong> Venha bagunçar com a gente na festa comunitária. </strong>
                     </p>
 
 
                     <p class="frase-4">
-                        Prepare o cardio para correr atrás do aniversariante,
-                        porque prometemos muitos doces e zero regras.
-                        Confirme logo para o Alípio não comer tudo!
+                        Prepare o cardio para correr atrás do aniversariante, porque prometemos muitos doces e zero regras. Confirme logo para o Alípio não comer tudo!
                     </p>
 
 
+                    <!-- DATA -->
+
                     <div class="bloco-dados">
 
-
                         <p class="data-festa">
-                            DIA DE BRINCAR: 13/09/2026
+                            📅 DIA DE BRINCAR:
+                            13/09/2026
                         </p>
-
 
                         <p class="hora-festa">
-                            HORA DA COMIDA: Às 13:00 Horas
+                            ⏰ HORA DA COMIDA:
+                            Às 13:00 Horas
                         </p>
 
-
                     </div>
-
 
                 </div>
 
             </div>
 
 
-
             <!-- ==================================================
-                 FOTO DO ERIC
-                 ================================================== -->
+                 FOTO INTERNA
+            ================================================== -->
 
             <div class="cardInside"></div>
 
@@ -1137,10 +998,9 @@
         </div>
 
 
-
         <!-- ======================================================
-             BOTÕES
-             ====================================================== -->
+             BOTÕES FORA DO CARTÃO
+        ====================================================== -->
 
         <div
             id="botoes-acao"
@@ -1151,26 +1011,23 @@
             <!-- WHATSAPP -->
 
             <a
-                href="https://wa.me/5519996789314?text=Presen%C3%A7a%20confirmada%20no%20paiol%21%20J%C3%A1%20separei%20minhas%20botas%20e%20meu%20chap%C3%A9u%20de%20palha.%20Pode%20contar%20comigo%20para%20encarar%20a%20festa%20e%20ajudar%20a%20comer%20todos%20os%20doces%21"
-
+                href="https://wa.me/5519996789314?text=Presen%C3%A7a%20confirmada%20no%20paiol!%20J%C3%A1%20separei%20minhas%20botas%20e%20meu%20chap%C3%A9u%20de%20palha.%20Pode%20contar%20comigo%20para%20encarar%20a%20festa%20e%20ajudar%20a%20comer%20todos%20os%20doces!"
                 target="_blank"
-
                 class="btn btn-whatsapp"
             >
-                <strong>CONFIRMAR COM A MAMÃE</strong>
+                <strong>💚CONFIRMAR COM A MAMÃE</strong>
             </a>
 
 
-            <!-- GOOGLE MAPS -->
+            <!-- LOCAL -->
 
             <a
                 href="https://maps.app.goo.gl/LYmkdDKAwS8KjAyYA"
-
                 target="_blank"
-
                 class="btn btn-location"
             >
-                <strong>DA MINHA FAZENDA</strong>
+                <strong>📍LOCAL DA MINHA FAZENDA</strong>
+                
             </a>
 
 
@@ -1181,5 +1038,4 @@
 
 
 </body>
-
 </html>
