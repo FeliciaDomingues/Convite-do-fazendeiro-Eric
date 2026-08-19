@@ -13,7 +13,7 @@
     <!-- IMAGEM DE PRÉ-VISUALIZAÇÃO DO LINK NO WHATSAPP -->
     <meta property="og:title" content="ANIVERSÁRIO DO FAZENDEIRO ERIC">
     <meta property="og:description" content="Convite do aniversário de 02 aninhos do Eric!">
-    <meta property="og:image" content="https://convite-do-fazendeiro-eric-02-aninh.vercel.app/css/img/cocoricó.png">
+    <meta property="og:image" content="https://convite-do-fazendeiro-eric-02-aninh.vercel.app/css/img/ericc.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://convite-do-fazendeiro-eric-02-aninh.vercel.app/">
 
@@ -131,6 +131,8 @@
             gap: 20px;
 
             margin: auto;
+
+            visibility: hidden;
         }
 
 
@@ -863,6 +865,7 @@
             onclick="
                 document.getElementById('bgMusic').play();
                 this.parentElement.style.display='none';
+                document.querySelector('.card-wrapper').style.visibility='visible';
             "
         >
             <strong>🐣 Tem festa vindo aí… e você é nosso convidado especial! 🐣</strong>
