@@ -762,64 +762,41 @@
            📱 CELULARES PEQUENOS
         ========================================================== */
 
-        @media screen and (max-width: 380px) {
+       /* AJUSTE MÍNIMO: centralização e tamanho no celular */
+@media screen and (max-width: 600px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
 
-            .birthdayCard {
-                width:
-                    94vw;
+    .card-wrapper {
+        width: 100%;
+        margin: 0 auto;
+        align-items: center;
+    }
 
-                height:
-                    125vw;
+    .birthdayCard {
+        width: min(94vw, 440px);
+        height: 125vw;
+        max-height: 600px;
+        min-height: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-                min-height:
-                    450px;
-            }
+    .card-buttons {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 
-
-            .conteudo-interno {
-                padding:
-                    22px 15px;
-
-                gap:
-                    11px;
-            }
-
-
-            .conteudo-interno h2 {
-                font-size:
-                    19px;
-            }
-
-
-            .conteudo-interno p {
-                font-size:
-                    10px;
-
-                line-height:
-                    1.35;
-            }
-
-
-            .bloco-dados p {
-                font-size:
-                    10px;
-            }
-
-
-            .card-buttons {
-                width:
-                    94vw;
-            }
-
-
-            .btn {
-                font-size:
-                    9px;
-
-                min-height:
-                    48px;
-            }
-        }
+@media screen and (max-width: 380px) {
+    .birthdayCard {
+        min-height: 0;
+    }
+}
 
 
         /* ==========================================================
@@ -901,7 +878,7 @@
     <audio
         id="bgMusic"
         src="audio/cocorico.mp3"
-        preload="auto"
+        preload="none"
         loop>
     </audio>
 
