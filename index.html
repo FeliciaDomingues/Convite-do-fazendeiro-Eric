@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,13 @@
 
     <!-- FOTO DA ABA DO NAVEGADOR -->
     <link rel="icon" type="image/png" href="img4/julio.png">
+
+    <!-- IMAGEM DE PRÉ-VISUALIZAÇÃO DO LINK NO WHATSAPP -->
+    <meta property="og:title" content="ANIVERSÁRIO DO FAZENDEIRO ERIC">
+    <meta property="og:description" content="Convite do aniversário de 02 aninhos do Eric!">
+    <meta property="og:image" content="https://convite-do-fazendeiro-eric-02-aninh.vercel.app/css/img/cocoricó.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://convite-do-fazendeiro-eric-02-aninh.vercel.app/">
 
     <style>
 
@@ -38,7 +46,7 @@
             overflow-x: hidden;
             overflow-y: auto;
 
-            background-image: url('img3/fenos.png');
+            background-image: url('img3/mato.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -65,7 +73,7 @@
             align-items: center;
             justify-content: center;
 
-            background-image: url('img3/fenos.png');
+            background-image: url('img3/mato.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -200,7 +208,7 @@
             backface-visibility: hidden;
 
             background-image:
-                url('css/img/cocoricó.png');
+                url('css/img/ericc.png');
 
             background-size:
                 cover;
@@ -265,7 +273,7 @@
                 #ffffff;
 
             background-image:
-                url('css/img2/eric.png');
+                url('css/img2/13.png');
 
             background-size:
                 cover;
@@ -316,11 +324,6 @@
             overflow-x:
                 hidden;
 
-            /*
-                Antes era 0.80.
-                Agora 0.55 para deixar
-                a foto do Eric aparecer.
-            */
             background:
                 rgba(255, 255, 255, 0.55);
         }
@@ -461,20 +464,20 @@
 
 
         /* ==========================================================
-           BOTÕES
+           BOTÕES — AGORA FICAM ABAIXO DO CONVITE
         ========================================================== */
 
         .card-buttons {
             display: flex;
 
-            flex-direction: row;
+            flex-direction: column;
 
             justify-content: center;
 
-            align-items: stretch;
+            align-items: center;
 
             gap:
-                15px;
+                10px;
 
             width:
                 440px;
@@ -492,7 +495,7 @@
                 hidden;
 
             transform:
-                translateY(-25px);
+                translateY(-10px);
 
             transition:
                 opacity 0.6s ease,
@@ -524,7 +527,7 @@
             justify-content: center;
 
             width:
-                50%;
+                100%;
 
             min-height:
                 48px;
@@ -671,10 +674,6 @@
                 gap:
                     13px;
 
-                /*
-                    Mantém a foto visível
-                    também no celular.
-                */
                 background:
                     rgba(255, 255, 255, 0.55);
             }
@@ -725,7 +724,7 @@
             }
 
 
-            /* BOTÕES */
+            /* BOTÕES ABAIXO DO CONVITE */
 
             .card-buttons {
                 width:
@@ -736,6 +735,9 @@
 
                 gap:
                     8px;
+
+                flex-direction:
+                    column;
             }
 
 
@@ -866,6 +868,7 @@
         }
 
     </style>
+
 </head>
 
 
@@ -885,7 +888,7 @@
                 this.parentElement.style.display='none';
             "
         >
-            <strong>🐣VENHA BRINCAR COMIGO🐣</strong>
+            <strong>🐣 Tem festa vindo aí… e você é nosso convidado especial! 🐣</strong>
         </button>
 
     </div>
@@ -944,75 +947,20 @@
             ================================================== -->
 
             <div class="cardInside">
-
-                <div class="conteudo-interno">
-
-
-                    <h2>
-                        <strong>02 ANINHOS!</strong>
-                    </h2>
-
-
-                    <p class="frase-1">
-                        <strong>Alerta vermelho no paiol!</strong>
-                    </p>
-
-
-                    <p class="frase-2">
-                        O Alipio já está relinchando de alegria e o Júlio
-                        arrumou o chapéu, porque o fazendeiro,
-                        também conhecido como Eric, vai completar 2 aninhos!
-                    </p>
-
-
-                    <p class="frase-3">
-                        <strong>
-                        </strong>Venha bagunçar com a gente na festa comunitária.</strong>
-                    </p>
-
-
-                    <p class="frase-4">
-                        Prepare o cardio para correr atrás do aniversariante,
-                        porque prometemos muitos doces e zero regras.
-                        Confirme logo para o Alípio não comer tudo!
-                    </p>
-
-
-                    <!-- ==================================================
-                         DATA
-                    ================================================== -->
-
-                    <div class="bloco-dados">
-
-                        <p class="data-festa">
-                            DIA DE BRINCAR:
-                            13/09/2026
-                        </p>
-
-                        <p class="hora-festa">
-                            HORA DA COMIDA:
-                            Às 13:00 Horas
-                        </p>
-
-                    </div>
-
-
-                </div>
-
             </div>
 
 
         </div>
 
 
-        <!-- ======================================================
-             BOTÕES
-        ====================================================== -->
+        <!-- ==========================================================
+             BOTÕES DE AÇÃO
+             
+             AGORA ESTÃO FORA DO CARTÃO
+             E APARECEM EMBAIXO DELE
+        ========================================================== -->
 
-        <div
-            id="botoes-acao"
-            class="card-buttons"
-        >
+        <div id="botoes-acao" class="card-buttons">
 
 
             <!-- WHATSAPP -->
@@ -1023,11 +971,8 @@
                 class="btn btn-whatsapp"
             >
                 <strong>
-
                     CONFIRMAR COM A MAMÃE
-
                 </strong>
-              
             </a>
 
 
@@ -1038,10 +983,9 @@
                 target="_blank"
                 class="btn btn-location"
             >
-              <strong>
+                <strong>
                     LOCAL DA FAZENDA
-              </strong>
-                
+                </strong>
             </a>
 
 
@@ -1052,4 +996,5 @@
 
 
 </body>
+
 </html>
